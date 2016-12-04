@@ -1,294 +1,373 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en-us">
   <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Automated browser testing for the modern web development stack | TestCafe</title>
-  <meta name="description" content="TestCafe is a simple and powerful framework for testing websites and apps. It allows you to easily create, maintain and execute automated web tests across browsers, operating systems and devices.">
-  <meta name="viewport" content="width=device-width">
-
-  <link rel="shortcut icon" href="/testcafe/favicon.ico">
-  <link rel="stylesheet" href="/testcafe/css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/docco.min.css">
-  <link rel="canonical" href="http://devexpress.github.io/testcafe/">
-  <link rel="alternate" type="application/rss+xml" title="TestCafe" href="http://devexpress.github.io/testcafe/feed.xml">
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
-  <script>
-      document.addEventListener('DOMContentLoaded', function (e) {
-          hljs.initHighlightingOnLoad();
-      });
-  </script>
-
-  
-  <script>
-    // Google Analytics
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-83678642-1', 'auto');
-    ga('send', 'pageview');
-  </script>
-  
-
-  
-  
-
-  
-    <link rel="stylesheet" href="css/landing-page.css">
-
-    <!-- Enable the gallery-->
-    <script defer type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.3.min.js"></script>
-    <script defer type="text/javascript" src="https://cdn3.devexpress.com/jslib/16.1.4/js/dx.all.js"></script>
-    <script defer src="scripts/gallery.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/16.1.4/css/dx.common.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/16.1.4/css/dx.ios7.default.css" />
-    <link href="css/gallery.css" type="text/css" rel="stylesheet">
-
-    <!--GitHub Star button-->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-  
-
-  
-    <script>
-        if (document.images) {
-            img1 = new Image();
-            img1.src = '/testcafe/images/test-cafe-logo.png';
-        }
-    </script>
-  
-    <script>
-        function initHeader(siteHeader, contentWrapper) {
-            var MIN_BODY_WIDTH = 900;
-
-            function updateHeader() {
-                var bodyMinimized = document.body.clientWidth === MIN_BODY_WIDTH;
-                
-                
-
-                if (window.pageYOffset === 0 || bodyMinimized)
-                    siteHeader.className = siteHeader.className.replace(/\sminimized\b/,'');
-                else if(siteHeader.className.indexOf('minimized') === -1)
-                    siteHeader.className += ' minimized';
-                
-                
-
-                siteHeader.style.position = bodyMinimized ? 'static' : '';
-
-                if(contentWrapper)
-                    contentWrapper.style.paddingTop = bodyMinimized ? '48px' : '';
-            }
-
-            updateHeader();
-            window.addEventListener('scroll', updateHeader);
-            window.addEventListener('resize', updateHeader);
-        }
-        document.addEventListener('DOMContentLoaded', function (e) {
-            var contentWrapper = document.querySelector('.banner');
-            var siteHeader     = document.querySelector('.site-header');
-
-            if(siteHeader) 
-                initHeader(siteHeader, contentWrapper);
-        });
-    </script>
-</head>
-
-
+    <meta charset="UTF-8">
+    <title>Testcafe by grazies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
   <body>
-    <div class="page-content-wrapper">
+    <section class="page-header">
+      <h1 class="project-name">Testcafe</h1>
+      <h2 class="project-tagline">Automated browser testing for the modern web development stack.</h2>
+      <a href="https://github.com/grazies/testcafe" class="btn">View on GitHub</a>
+      <a href="https://github.com/grazies/testcafe/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/grazies/testcafe/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-      <header class="site-header animated">
-  <div class="site-header-content">
-    <a class="site-logo" href="/testcafe/"></a>
+    <section class="main-content">
+      <h1 align="center">
+<a id="----------------" class="anchor" href="#----------------" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
+    <a href="https://devexpress.github.io/testcafe">
+        <img src="https://raw.github.com/DevExpress/testcafe/master/media/logo.png" alt="testcafe">
+    </a>
+</h1>
 
-    <nav class="site-nav">
-      <div class="trigger">
-        
-          
-          <a class="page-link " href="/testcafe/documentation/getting-started/">Documentation</a>
-          <span class="page-link-separator">|</span>
-        
-          
-          <a class="page-link " href="https://github.com/DevExpress/testcafe">GitHub</a>
-          <span class="page-link-separator">|</span>
-        
-          
-          <a class="page-link " href="/testcafe/blog/">Blog</a>
-          <span class="page-link-separator">|</span>
-        
-          
-          <a class="page-link " href="https://github.com/DevExpress/testcafe/issues">Issues</a>
-          <span class="page-link-separator">|</span>
-        
-          
-          <a class="page-link " href="https://testcafe-discuss.devexpress.com/">Discuss</a>
-          <span class="page-link-separator">|</span>
-        
-          
-          <a class="page-link " href="https://twitter.com/dxtestcafe">Twitter</a>
-          <span class="page-link-separator">|</span>
-        
-      </div>
-    </nav>
-  </div>
-</header>
+<p align="center">
+<a href="https://devexpress.github.io/testcafe">https://devexpress.github.io/testcafe</a>
+</p>
 
+<p align="center">
+<i>Automated browser testing for the modern web development stack.</i>
+</p>
 
-      <main>
-    <form id="main-form" action="#">
-    <div class="banner">
-        <div class="header">
-        Automated browser testing<br/>for the modern web development stack
-        </div>
-        <div class="slogan">
-        TestCafe is a pure node.js end-to-end solution for testing web apps. It takes care of all the stages: starting browsers, running tests, gathering test results and generating reports. TestCafe doesn’t need browser plugins - it works in all popular modern browsers out-of-the-box.
-        </div>
-        <div class="white-button-container">
-        <a href="documentation/getting-started/" class="white-button">Get Started</a>
-        </div>
-        <div class="star-button">
-            <a class="github-button" href="https://github.com/DevExpress/testcafe" data-style="mega" data-count-href="/DevExpress/testcafe/stargazers" data-count-api="/repos/DevExpress/testcafe#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star DevExpress/testcafe on GitHub"><span style="color:#ffffff">Star</span></a>
-        </div>
-    </div>
-    <div class="main-content">
-        <a class="anchor" name="features"></a>
-        <div class="feature">
-            <span class="name">
-                Easy Install
-            </span>
-            <div class="description">
-                <p>Everything is included in a single module installed with one command.</p>
-                <div class="command">npm install -g testcafe</div>
-                <p>No native parts to compile, no browsers plugins to install.</p>
-            </div>
-        </div>
-        <div class="feature">
-            <span class="name">
-                Complete Test Harness
-            </span>
-            <div class="description">
-                <p>TestCafe automatically starts browsers, runs tests and gathers results. You only type a single command to begin testing.</p>
-                <div class="command">testcafe chrome,firefox tests/</div>
-                <p>When testing is finished, TestCafe aggregates test results from different browsers and outputs them into one comprehensive report.</p>
-            </div>
-        </div>
-        <div class="feature">
-            <span class="name">
-                Write Test Code Using ES2016
-            </span>
-            <div class="description">
-                <p>You can write TestCafe tests in ES2016 using the latest JavaScript features like <code>async/await</code>.</p>
-                <p><a href="documentation/test-api">Test API</a> consists of over two dozen methods that can emulate all actions one could possibly do with a webpage. Chained syntax allows for code that is easy to write and read.</p>
-                <pre><code>import { expect } from 'chai';
+<p align="center">
+<a href="https://ci.appveyor.com/project/DevExpress/testcafe"><img alt="Functional Windows desktop" src="https://ci.appveyor.com/api/projects/status/ftelkyuiji8lyadf?svg=true"></a>
+<a href="https://travis-ci.org/DevExpress/testcafe"><img alt="All Travis tasks (server, client, functional: mobile, macOS, Edge)" src="https://travis-ci.org/DevExpress/testcafe.svg"></a>
+<a href="https://www.npmjs.com/package/testcafe"><img alt="NPM Version" src="https://img.shields.io/npm/v/testcafe.svg"></a>
+</p>
 
-fixture `Example page`
-    .page `https://devexpress.github.io/testcafe/example`;
+<hr>
 
-test('Emulate user actions and perform a verification', async t => {
-    await t
-        .setNativeDialogHandler(() => true)
-        .click('#populate')
-        .click('#submit-button');
+<p>TestCafe is a pure node.js end-to-end solution for testing web apps. It takes care of all the stages: starting browsers, running tests, gathering test results and generating reports. TestCafe doesn’t need browser plugins - it works in all popular modern browsers out-of-the-box.</p>
 
-    const location = await t.eval(() => window.location);
+<p><img src="https://raw.githubusercontent.com/DevExpress/testcafe/master/media/install-and-run-test.gif" alt="Install TestCafe and Run a Test"></p>
 
-    expect(location.pathname).eql('/testcafe/example/thank-you.html');
-});</code></pre>
-                <p>Additionally, TestCafe automatically generates source maps for easy debugging. To debug your test code, start a debugging session in an IDE that supports source maps.</p>
-            </div>
-        </div>
-       <div class="feature">
-            <span class="name">
-                Direct Access to Page Elements
-            </span>
-            <div class="description">
-                <p>TestCafe allows you to access webpage elements using standard CSS selectors or <a href="documentation/test-api/selecting-page-elements/selectors.html">custom selectors</a> that run client JavaScript code. You can call a custom selector as a regular function within your test. It will execute your code on the client and pass the returned value back to the test. This allows you to determine the state of each element on the tested page or select a proper element to perform an action on.</p>
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#roadmap">Roadmap</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#stay-in-touch">Stay in Touch</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#author">Author</a></li>
+</ul>
 
-                <pre><code>import { expect } from 'chai';
-import { Selector } from 'testcafe';
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
 
-const elementWithId = Selector(id => document.querySelector(`#${id}`));
+<h3>
+<a id="easy-install" class="anchor" href="#easy-install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Easy Install</h3>
 
-fixture `Example page`
-    .page `https://devexpress.github.io/testcafe/example`;
+<p>Everything is included in a single module installed with one command.</p>
 
-test('Type the developer name, obtain the header text and check it', async t => {
-    await t
-        .typeText('#developer-name', 'John Smith')
-        .click('#submit-button');
+<div class="highlight highlight-source-shell"><pre>npm install -g testcafe</pre></div>
 
-    const headerText = await elementWithId('article-header').innerText;
+<p>No native parts to compile, no browsers plugins to install.</p>
 
-    expect(headerText).to.equal('Thank you, John!');
-});</code></pre>
-            </div>
-        </div>
-        <div class="feature">
-            <span class="name">
-                No Extra Coding
-            </span>
-            <div class="description">
-                <p>Write tests without boilerplate code.</p>
-                <ul>
-                    <li>TestCafe automatically waits for page loads and XHRs to complete, as well as for DOM elements to become visible. You do not need to write custom code for that.</li>
-                    <li>Test runs are isolated, which means that they do not share cookies, local or session storages. There is nothing to clean up between test runs.</li>
-                </ul>
-            </div>
-       </div>
-        <div class="feature">
-            <span class="name">
-                Descriptive Reports
-            </span>
-            <div class="description">
-                <p>TestCafe automatically generates full-detailed reports that provide a test run summary and comprehensive information about errors. Automatic page screenshots, fancy call sites and call stacks free of TestCafe internals allow you to easily detect error causes.</p>
-                <p>Use one of <a href="documentation/using-testcafe/common-concepts/reporters.html">built-in reporters</a> to output test results or <a href="documentation/extending-testcafe/reporter-plugin/">create your own one</a> to produce custom reports.</p>
-            </div>
-            <div class="gallery-container">
-            <div id="gallery"></div>
-            </div>
-        </div>
-        <div class="feature">
-            <span class="name">
-                Straightforward Continuous Integration
-            </span>
-            <div class="description">
-                <p>TestCafe is easy to set up on popular Continuous Integration platforms as it allows you to test against various browsers: local, remote or cloud (e.g. <a href="https://saucelabs.com/">Sauce Labs</a>).
-                You can also create a custom <a href="documentation/extending-testcafe/browser-provider-plugin">browser provider</a> to add support for a browser or a cloud platform of your choice.</p>
-            </div>
-        </div>
-        <div class="feature">
-            <span class="name">
-                More to Come…
-            </span>
-            <div class="description">
-                <p>We plan to introduce other outstanding features so that you can test apps with even more efficiency. Meanwhile, you can help us improve TestCafe by voting for features on our road map or sharing your own ideas and code in our <a href="https://github.com/DevExpress/testcafe">GitHub repository</a>.</p>
-            </div>
-        </div>
-        <div class="blue-button-container">
-        <a href="documentation/getting-started/" class="blue-button">Get Started</a>
-        </div>
-    </div>
-    </form>
-</main>
+<h3>
+<a id="complete-test-harness" class="anchor" href="#complete-test-harness" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Complete Test Harness</h3>
 
+<p>TestCafe automatically starts browsers, runs tests and gathers results. You only type a single command to begin testing.</p>
 
-      <div class="push"></div>
-    </div>
+<div class="highlight highlight-source-shell"><pre>testcafe chrome tests/</pre></div>
 
-    <footer class="site-footer">
-    <div class="site-footer-content">
-        <div class="footer-col-1">
-            <p><strong>TestCafe</strong>: Automated browser testing for the modern web development stack<br/>
-            Copyright © 1998-2016 Developer Express Inc.</p>
-        </div>
-    </div>
-</footer>
+<p>When testing is finished, TestCafe aggregates test results from different browsers and outputs them into one comprehensive report.</p>
 
+<h3>
+<a id="write-test-code-using-es2016" class="anchor" href="#write-test-code-using-es2016" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Write Test Code Using ES2016</h3>
 
+<p>You can write TestCafe tests in ES2016 using the latest JavaScript features like <code>async/await</code>.</p>
+
+<p><a href="https://devexpress.github.io/testcafe/documentation/test-api/index.html">Test API</a> consists of over two dozen methods that can emulate all actions one could possibly do with a webpage.
+Chained syntax allows for code that is easy to write and read.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> { <span class="pl-smi">expect</span> } <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>chai<span class="pl-pds">'</span></span>;
+
+fixture <span class="pl-s"><span class="pl-pds">`</span>Example page<span class="pl-pds">`</span></span>
+    .<span class="pl-smi">page</span> <span class="pl-s"><span class="pl-pds">`</span>https://devexpress.github.io/testcafe/example<span class="pl-pds">`</span></span>;
+
+<span class="pl-en">test</span>(<span class="pl-s"><span class="pl-pds">'</span>Emulate user actions and perform a verification<span class="pl-pds">'</span></span>, <span class="pl-k">async</span> <span class="pl-smi">t</span> <span class="pl-k">=&gt;</span> {
+    <span class="pl-k">await</span> t
+        .<span class="pl-en">setNativeDialogHandler</span>(() <span class="pl-k">=&gt;</span> <span class="pl-c1">true</span>)
+        .<span class="pl-c1">click</span>(<span class="pl-s"><span class="pl-pds">'</span>#populate<span class="pl-pds">'</span></span>)
+        .<span class="pl-c1">click</span>(<span class="pl-s"><span class="pl-pds">'</span>#submit-button<span class="pl-pds">'</span></span>);
+
+    <span class="pl-k">const</span> <span class="pl-c1">location</span> <span class="pl-k">=</span> <span class="pl-k">await</span> <span class="pl-smi">t</span>.<span class="pl-en">eval</span>(() <span class="pl-k">=&gt;</span> <span class="pl-c1">window</span>.<span class="pl-c1">location</span>);
+
+    <span class="pl-en">expect</span>(<span class="pl-smi">location</span>.<span class="pl-c1">pathname</span>).<span class="pl-en">eql</span>(<span class="pl-s"><span class="pl-pds">'</span>/testcafe/example/thank-you.html<span class="pl-pds">'</span></span>);
+});</pre></div>
+
+<p>Additionally, TestCafe automatically generates source maps for easy debugging.
+To debug your test code, start a debugging session in an IDE that supports source maps.</p>
+
+<h3>
+<a id="direct-access-to-page-elements" class="anchor" href="#direct-access-to-page-elements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Direct Access to Page Elements</h3>
+
+<p>TestCafe allows you to access webpage elements using standard CSS selectors or <a href="https://devexpress.github.io/testcafe/documentation/test-api/selecting-page-elements/selectors.html">custom selectors</a> that run client JavaScript code.
+You can call a custom selector as a regular function within your test.
+It will execute your code on the client and pass the returned value back to the test.
+This allows you to determine the state of each element on the tested page or select a proper element to perform an action on.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> { <span class="pl-smi">expect</span> } <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>chai<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> { <span class="pl-smi">Selector</span> } <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>testcafe<span class="pl-pds">'</span></span>;
+
+<span class="pl-k">const</span> <span class="pl-c1">elementWithId</span> <span class="pl-k">=</span> <span class="pl-en">Selector</span>(<span class="pl-smi">id</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">document</span>.<span class="pl-c1">querySelector</span>(<span class="pl-s"><span class="pl-pds">`</span>#<span class="pl-s1"><span class="pl-pse">${</span>id<span class="pl-pse">}</span></span><span class="pl-pds">`</span></span>));
+
+fixture <span class="pl-s"><span class="pl-pds">`</span>Example page<span class="pl-pds">`</span></span>
+    .<span class="pl-smi">page</span> <span class="pl-s"><span class="pl-pds">`</span>https://devexpress.github.io/testcafe/example<span class="pl-pds">`</span></span>;
+
+<span class="pl-en">test</span>(<span class="pl-s"><span class="pl-pds">'</span>Type the developer name, obtain the header text and check it<span class="pl-pds">'</span></span>, <span class="pl-k">async</span> <span class="pl-smi">t</span> <span class="pl-k">=&gt;</span> {
+    <span class="pl-k">await</span> t
+        .<span class="pl-en">typeText</span>(<span class="pl-s"><span class="pl-pds">'</span>#developer-name<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>John Smith<span class="pl-pds">'</span></span>)
+        .<span class="pl-c1">click</span>(<span class="pl-s"><span class="pl-pds">'</span>#submit-button<span class="pl-pds">'</span></span>);
+
+    <span class="pl-k">const</span> <span class="pl-c1">headerText</span> <span class="pl-k">=</span> <span class="pl-k">await</span> <span class="pl-en">elementWithId</span>(<span class="pl-s"><span class="pl-pds">'</span>article-header<span class="pl-pds">'</span></span>).<span class="pl-smi">innerText</span>;
+
+    <span class="pl-en">expect</span>(headerText).<span class="pl-smi">to</span>.<span class="pl-en">equal</span>(<span class="pl-s"><span class="pl-pds">'</span>Thank you, John!<span class="pl-pds">'</span></span>);
+});</pre></div>
+
+<h3>
+<a id="no-extra-coding" class="anchor" href="#no-extra-coding" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>No Extra Coding</h3>
+
+<p>Write tests without boilerplate code.</p>
+
+<ul>
+<li>TestCafe automatically waits for page loads and XHRs to complete, as well as for DOM elements to become visible. You do not need to write custom code for that.</li>
+<li>Test runs are isolated, which means that they do not share cookies, local or session storages. There is nothing to clean up between test runs.</li>
+</ul>
+
+<h3>
+<a id="descriptive-reports" class="anchor" href="#descriptive-reports" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Descriptive Reports</h3>
+
+<p>TestCafe automatically generates full-detailed reports that provide a test run summary and comprehensive information about errors.
+Automatic page screenshots, fancy call sites and call stacks free of TestCafe internals allow you to easily detect error causes.</p>
+
+<p>Use one of <a href="https://devexpress.github.io/testcafe/documentation/using-testcafe/common-concepts/reporters.html">built-in reporters</a> to output test results or <a href="https://devexpress.github.io/testcafe/documentation/extending-testcafe/reporter-plugin/">create your own one</a> to produce custom reports.</p>
+
+<p><img src="docs/articles/images/spec-report.png" alt="Spec Report"></p>
+
+<h3>
+<a id="straightforward-continuous-integration" class="anchor" href="#straightforward-continuous-integration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Straightforward Continuous Integration</h3>
+
+<p>TestCafe is easy to set up on popular Continuous Integration platforms as it allows you to test against various browsers: local, remote or cloud (e.g., <a href="https://saucelabs.com/">Sauce Labs</a>).
+You can also create a custom <a href="https://devexpress.github.io/testcafe/documentation/extending-testcafe/browser-provider-plugin/index.html">browser provider</a> to add support for a browser or a cloud platform of your choice.</p>
+
+<h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<h3>
+<a id="installing-testcafe" class="anchor" href="#installing-testcafe" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installing TestCafe</h3>
+
+<p>Ensure that <a href="https://nodejs.org/">Node.js</a> and <a href="https://www.npmjs.com/">npm</a> are installed on your computer, then run a single command:</p>
+
+<div class="highlight highlight-source-shell"><pre>npm install -g testcafe</pre></div>
+
+<p>For more information, see <a href="https://devexpress.github.io/testcafe/documentation/using-testcafe/installing-testcafe.html">Installing TestCafe</a>.</p>
+
+<h3>
+<a id="creating-a-test" class="anchor" href="#creating-a-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating a Test</h3>
+
+<p>To create a test, create a new .js file anywhere on your computer.
+This file must have a special structure: tests must be organized into fixtures. Thus, begin by declaring a fixture using the <a href="https://devexpress.github.io/testcafe/documentation/test-api/test-code-structure.html#fixtures">fixture</a> function.</p>
+
+<div class="highlight highlight-source-js"><pre>fixture <span class="pl-s"><span class="pl-pds">`</span>Getting Started<span class="pl-pds">`</span></span></pre></div>
+
+<p>In this tutorial, you will create a test for the <a href="https://devexpress.github.io/testcafe/example">https://devexpress.github.io/testcafe/example</a> sample page.
+Specify this page as a start page for the fixture by using the <a href="https://devexpress.github.io/testcafe/documentation/test-api/test-code-structure.html#specifying-the-start-webpage">page</a> function.</p>
+
+<div class="highlight highlight-source-js"><pre>fixture <span class="pl-s"><span class="pl-pds">`</span>Getting Started<span class="pl-pds">`</span></span>
+    .<span class="pl-smi">page</span> <span class="pl-s"><span class="pl-pds">`</span>https://devexpress.github.io/testcafe/example<span class="pl-pds">`</span></span>;</pre></div>
+
+<p>Then, create the <a href="https://devexpress.github.io/testcafe/documentation/test-api/test-code-structure.html#tests">test</a> function where you will place test code.</p>
+
+<div class="highlight highlight-source-js"><pre>fixture <span class="pl-s"><span class="pl-pds">`</span>Getting Started<span class="pl-pds">`</span></span>
+    .<span class="pl-smi">page</span> <span class="pl-s"><span class="pl-pds">`</span>https://devexpress.github.io/testcafe/example<span class="pl-pds">`</span></span>;
+
+<span class="pl-en">test</span>(<span class="pl-s"><span class="pl-pds">'</span>My first test<span class="pl-pds">'</span></span>, <span class="pl-k">async</span> <span class="pl-smi">t</span> <span class="pl-k">=&gt;</span> {
+    <span class="pl-c">// Test code</span>
+});</pre></div>
+
+<h3>
+<a id="running-the-test" class="anchor" href="#running-the-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running the Test</h3>
+
+<p>You can simply run the test from a command shell by calling a single command where you specify the <a href="https://devexpress.github.io/testcafe/documentation/using-testcafe/command-line-interface.html#browser-list">target browser</a> and <a href="https://devexpress.github.io/testcafe/documentation/using-testcafe/command-line-interface.html#file-pathglob-pattern">file path</a>.</p>
+
+<div class="highlight highlight-source-shell"><pre>testcafe chrome test1.js</pre></div>
+
+<p>TestCafe will automatically open the chosen browser and start test execution within it.</p>
+
+<blockquote>
+<p>Important! Make sure to keep the browser tab that is running tests active. Do not minimize the browser window.
+Inactive tabs and minimized browser windows switch to a lower resource consumption mode
+where tests are not guaranteed to execute correctly.</p>
+</blockquote>
+
+<p>For more information on how to configure the test run, see <a href="https://devexpress.github.io/testcafe/documentation/using-testcafe/command-line-interface.html">Command Line Interface</a>.</p>
+
+<h3>
+<a id="viewing-the-test-results" class="anchor" href="#viewing-the-test-results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Viewing the Test Results</h3>
+
+<p>While the test is running, TestCafe is gathering information about the test run and outputting the report right into a command shell.</p>
+
+<p><img src="docs/articles/images/report.png" alt="Test Report"></p>
+
+<p>For more information, see <a href="https://devexpress.github.io/testcafe/documentation/using-testcafe/common-concepts/reporters.html">Reporters</a>.</p>
+
+<h3>
+<a id="writing-test-code" class="anchor" href="#writing-test-code" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Writing Test Code</h3>
+
+<h4>
+<a id="performing-actions-on-the-page" class="anchor" href="#performing-actions-on-the-page" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Performing Actions on the Page</h4>
+
+<p>Every test should be capable of interacting with page content. To perform user actions, TestCafe provides
+a number of <a href="https://devexpress.github.io/testcafe/documentation/test-api/actions/">actions</a>: <code>click</code>, <code>hover</code>, <code>typeText</code>, <code>setFilesToUpload</code>, etc.
+They can be called in a chain.</p>
+
+<p>The following fixture contains a simple test that types a developer name into a text editor and then clicks the Submit button.</p>
+
+<div class="highlight highlight-source-js"><pre>fixture <span class="pl-s"><span class="pl-pds">`</span>Getting Started<span class="pl-pds">`</span></span>
+    .<span class="pl-smi">page</span> <span class="pl-s"><span class="pl-pds">`</span>https://devexpress.github.io/testcafe/example<span class="pl-pds">`</span></span>;
+
+<span class="pl-en">test</span>(<span class="pl-s"><span class="pl-pds">'</span>My first test<span class="pl-pds">'</span></span>, <span class="pl-k">async</span> <span class="pl-smi">t</span> <span class="pl-k">=&gt;</span> {
+    <span class="pl-k">await</span> t
+        .<span class="pl-en">typeText</span>(<span class="pl-s"><span class="pl-pds">'</span>#developer-name<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>John Smith<span class="pl-pds">'</span></span>)
+        .<span class="pl-c1">click</span>(<span class="pl-s"><span class="pl-pds">'</span>#submit-button<span class="pl-pds">'</span></span>);
+});</pre></div>
+
+<p>All test actions are implemented as async functions of the <a href="https://devexpress.github.io/testcafe/documentation/test-api/test-code-structure.html#test-controller">test controller object</a> <code>t</code>.
+This object is used to access test run API.
+To wait for actions to complete, use the <code>await</code> keyword when calling these actions or action chains.</p>
+
+<h4>
+<a id="observing-page-state" class="anchor" href="#observing-page-state" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Observing Page State</h4>
+
+<p>TestCafe allows you to observe the page state.
+For this purpose, it offers special kinds of functions that will execute your code on the client:
+<a href="https://devexpress.github.io/testcafe/documentation/test-api/selecting-page-elements/selectors.html">Selector</a> used to get direct access to DOM elements
+and <a href="https://devexpress.github.io/testcafe/documentation/test-api/obtaining-data-from-the-client.html">ClientFunction</a> used to obtain arbitrary data from the client side.
+You call these functions as regular async functions, that is you can obtain their results and use parameters to pass data to them.</p>
+
+<p>For example, clicking the Submit button on the sample web page opens a "Thank you" page.
+To get access to DOM elements on the opened page, the <code>Selector</code> function can be used.
+The following example demonstrates how to access the article header element and obtain its actual text.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> { <span class="pl-smi">Selector</span> } <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>testcafe<span class="pl-pds">'</span></span>;
+
+<span class="pl-c">// Declare the parameterized Selector function</span>
+<span class="pl-c">// to get access to a DOM element identified by the `id` attribute</span>
+<span class="pl-k">const</span> <span class="pl-c1">elementWithId</span> <span class="pl-k">=</span> <span class="pl-en">Selector</span>(<span class="pl-smi">id</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(id));
+
+fixture <span class="pl-s"><span class="pl-pds">`</span>Getting Started<span class="pl-pds">`</span></span>
+    .<span class="pl-smi">page</span> <span class="pl-s"><span class="pl-pds">`</span>https://devexpress.github.io/testcafe/example<span class="pl-pds">`</span></span>;
+
+<span class="pl-en">test</span>(<span class="pl-s"><span class="pl-pds">'</span>My first test<span class="pl-pds">'</span></span>, <span class="pl-k">async</span> <span class="pl-smi">t</span> <span class="pl-k">=&gt;</span> {
+    <span class="pl-k">await</span> t
+        .<span class="pl-en">typeText</span>(<span class="pl-s"><span class="pl-pds">'</span>#developer-name<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>John Smith<span class="pl-pds">'</span></span>)
+        .<span class="pl-c1">click</span>(<span class="pl-s"><span class="pl-pds">'</span>#submit-button<span class="pl-pds">'</span></span>);
+
+    <span class="pl-c">// Use the Selector function to get access to the article header</span>
+    <span class="pl-k">const</span> <span class="pl-c1">articleHeader</span> <span class="pl-k">=</span> <span class="pl-k">await</span> <span class="pl-en">elementWithId</span>(<span class="pl-s"><span class="pl-pds">'</span>article-header<span class="pl-pds">'</span></span>);
+
+    <span class="pl-c">// Obtain the text of the article header</span>
+    <span class="pl-k">let</span> headerText <span class="pl-k">=</span> <span class="pl-smi">articleHeader</span>.<span class="pl-smi">innerText</span>;
+
+    <span class="pl-c">// Or use a shorthand form to obtain article header text directly</span>
+    headerText <span class="pl-k">=</span> <span class="pl-k">await</span> <span class="pl-en">elementWithId</span>(<span class="pl-s"><span class="pl-pds">'</span>article-header<span class="pl-pds">'</span></span>).<span class="pl-smi">innerText</span>;
+});</pre></div>
+
+<p>For more information, see <a href="https://devexpress.github.io/testcafe/documentation/test-api/selecting-page-elements/">Selecting Page Elements</a>.</p>
+
+<h4>
+<a id="assertions" class="anchor" href="#assertions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Assertions</h4>
+
+<p>A functional test also should check the result of actions performed.
+For example, the article header on the "Thank you" page should address a user by the entered name.
+To check if the header is correct, you have to add an assertion to the test.</p>
+
+<p>You can use assertions from Node's built-in <a href="https://nodejs.org/api/assert.html">assert</a> module or from any third-party assertion library.
+Before calling assertions, make sure an assertion library is installed into your project.</p>
+
+<p>The following test demonstrates how to use an assertion from <a href="http://chaijs.com/api/bdd/">Chai Assertion Library</a>.
+Before running the test, install the assertion library by calling the <code>npm install --save-dev chai</code> command.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> { <span class="pl-smi">expect</span> } <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>chai<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> { <span class="pl-smi">Selector</span> } <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>testcafe<span class="pl-pds">'</span></span>;
+
+<span class="pl-c">// Declare the parameterized selector function</span>
+<span class="pl-c">// to obtain text content of an element identified by the `id` attribute</span>
+<span class="pl-k">const</span> <span class="pl-c1">elementWithId</span> <span class="pl-k">=</span> <span class="pl-en">Selector</span>(<span class="pl-smi">id</span> <span class="pl-k">=&gt;</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(id));
+
+fixture <span class="pl-s"><span class="pl-pds">`</span>Getting Started<span class="pl-pds">`</span></span>
+    .<span class="pl-en">page</span>(<span class="pl-s"><span class="pl-pds">'</span>https://devexpress.github.io/testcafe/example<span class="pl-pds">'</span></span>);
+
+<span class="pl-en">test</span>(<span class="pl-s"><span class="pl-pds">'</span>My first test<span class="pl-pds">'</span></span>, <span class="pl-k">async</span> <span class="pl-smi">t</span> <span class="pl-k">=&gt;</span> {
+    <span class="pl-k">await</span> t
+        .<span class="pl-en">typeText</span>(<span class="pl-s"><span class="pl-pds">'</span>#developer-name<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>John Smith<span class="pl-pds">'</span></span>)
+        .<span class="pl-c1">click</span>(<span class="pl-s"><span class="pl-pds">'</span>#submit-button<span class="pl-pds">'</span></span>);
+
+    <span class="pl-c">// Use the Selector function to get access to the article header</span>
+    <span class="pl-k">const</span> <span class="pl-c1">headerText</span> <span class="pl-k">=</span> <span class="pl-k">await</span> <span class="pl-en">elementWithId</span>(<span class="pl-s"><span class="pl-pds">'</span>article-header<span class="pl-pds">'</span></span>).<span class="pl-smi">innerText</span>;
+
+    <span class="pl-c">// Use the assertion to check if the actual header text is equal to the expected one</span>
+    <span class="pl-en">expect</span>(headerText).<span class="pl-smi">to</span>.<span class="pl-en">equal</span>(<span class="pl-s"><span class="pl-pds">'</span>Thank you, John Smith!<span class="pl-pds">'</span></span>);
+});</pre></div>
+
+<h2>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Documentation</h2>
+
+<ul>
+<li><a href="https://devexpress.github.io/testcafe/documentation/test-api/">Test API</a></li>
+<li><a href="https://devexpress.github.io/testcafe/documentation/using-testcafe/">Using TestCafe</a></li>
+<li><a href="https://devexpress.github.io/testcafe/documentation/extending-testcafe/">Extending TestCafe</a></li>
+<li><a href="https://devexpress.github.io/testcafe/documentation/recipes/">Recipes</a></li>
+</ul>
+
+<h2>
+<a id="roadmap" class="anchor" href="#roadmap" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Roadmap</h2>
+
+<p>We plan to introduce other outstanding features so that you can test apps with even more efficiency.
+Meanwhile, you can help us improve TestCafe by voting for features on our <a href="https://github.com/DevExpress/testcafe/milestone/10">roadmap</a>.</p>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>Please use our <a href="https://github.com/DevExpress/testcafe/issues">issues page</a> to report a bug or request a feature.</p>
+
+<p>For general purpose questions and discussions, use the <a href="https://testcafe-discuss.devexpress.com/">discussion board</a>.</p>
+
+<p>For more information on how to help us improve TestCafe, please see the <a href="CONTRIBUTING.md">CONTRIBUTING.md</a> file.</p>
+
+<h2>
+<a id="stay-in-touch" class="anchor" href="#stay-in-touch" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Stay in Touch</h2>
+
+<ul>
+<li><a href="https://devexpress.github.io/testcafe/blog/">Blog</a></li>
+<li><a href="https://twitter.com/dxtestcafe">Twitter</a></li>
+</ul>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p><a href="LICENSE">MIT</a></p>
+
+<h2>
+<a id="author" class="anchor" href="#author" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Author</h2>
+
+<p>Developer Express Inc. (<a href="https://devexpress.com">https://devexpress.com</a>)</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/grazies/testcafe">Testcafe</a> is maintained by <a href="https://github.com/grazies">grazies</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
   </body>
-
 </html>
